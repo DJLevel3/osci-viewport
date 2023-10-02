@@ -1,6 +1,4 @@
 #include "MainComponent.h"
-#include "parser/FileParser.h"
-#include "parser/FrameProducer.h"
 #include "PluginEditor.h"
 
 MainComponent::MainComponent(OscirenderAudioProcessor& p, OscirenderAudioProcessorEditor& editor) : audioProcessor(p), pluginEditor(editor) {

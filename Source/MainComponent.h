@@ -2,8 +2,6 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "parser/FileParser.h"
-#include "parser/FrameProducer.h"
 #include "components/VisualiserComponent.h"
 
 class OscirenderAudioProcessorEditor;
