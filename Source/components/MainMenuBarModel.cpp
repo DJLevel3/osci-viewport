@@ -15,15 +15,6 @@ juce::PopupMenu MainMenuBarModel::getMenuForIndex(int topLevelMenuIndex, const j
 
 void MainMenuBarModel::menuItemSelected(int menuItemID, int topLevelMenuIndex) {
     switch (menuItemID) {
-        case 1:
-            editor.openProject();
-            break;
-        case 2:
-            editor.saveProject();
-            break;
-        case 3:
-            editor.saveProjectAs();
-            break;
         default:
             break;
     }

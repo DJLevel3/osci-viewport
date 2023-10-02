@@ -5,7 +5,6 @@
 #include "parser/FileParser.h"
 #include "parser/FrameProducer.h"
 #include "components/VisualiserComponent.h"
-#include "audio/PitchDetector.h"
 
 class OscirenderAudioProcessorEditor;
 class MainComponent : public juce::GroupComponent {
@@ -15,21 +14,11 @@ public:
 
 	void resized() override;
 	void paint(juce::Graphics& g) override;
-	void updateFileLabel();
 private:
 	OscirenderAudioProcessor& audioProcessor;
 	OscirenderAudioProcessorEditor& pluginEditor;
-
-	std::unique_ptr<juce::FileChooser> chooser;
-	juce::TextButton fileButton;
-	juce::TextButton closeFileButton;
-	juce::Label fileLabel;
-
-	juce::TextEditor fileName;
-	juce::ComboBox fileType;
-	juce::TextButton createFile{"Create File"};
-
-	VisualiserComponent visualiser{2, audioProcessor};
+	
+	VisualiserComponent visualiser{ 2, audioProcessor };
 	juce::TextButton openOscilloscope{"Open Oscilloscope"};
 
 	juce::Label frequencyLabel;

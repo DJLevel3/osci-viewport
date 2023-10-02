@@ -74,32 +74,6 @@ void EffectsListComponent::resized() {
 }
 
 std::shared_ptr<juce::Component> EffectsListComponent::createComponent(EffectParameter* parameter) {
-	if (parameter->paramID == "perspectiveRotateX" || parameter->paramID == "perspectiveRotateY" || parameter->paramID == "perspectiveRotateZ") {
-		BooleanParameter* toggle;
-		if (parameter->paramID == "perspectiveRotateX") {
-            toggle = audioProcessor.perspectiveEffect->fixedRotateX;
-		} else if (parameter->paramID == "perspectiveRotateY") {
-            toggle = audioProcessor.perspectiveEffect->fixedRotateY;
-		} else if (parameter->paramID == "perspectiveRotateZ") {
-            toggle = audioProcessor.perspectiveEffect->fixedRotateZ;
-        }
-		std::shared_ptr<SvgButton> button = std::make_shared<SvgButton>(parameter->name, BinaryData::fixed_rotate_svg, "white", "red", toggle);
-		button->onClick = [this, toggle] {
-			toggle->setBoolValueNotifyingHost(!toggle->getBoolValue());
-        };
-		return button;
-	} else if (parameter->paramID == "perspectiveStrength") {
-		std::shared_ptr<SvgButton> button = std::make_shared<SvgButton>(parameter->name, BinaryData::pencil_svg, "white", "red");
-		std::weak_ptr<SvgButton> weakButton = button;
-		button->setEdgeIndent(5);
-		button->setToggleState(editor.editingPerspective, juce::dontSendNotification);
-		button->onClick = [this, weakButton] {
-			if (auto button = weakButton.lock()) {
-                editor.editPerspectiveFunction(button->getToggleState());
-            }
-		};
-		return button;
-	}
 	return nullptr;
 }
 
