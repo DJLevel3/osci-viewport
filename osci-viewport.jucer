@@ -5,7 +5,7 @@
               pluginCharacteristicsValue="pluginProducesMidiOut,pluginWantsMidiIn"
               pluginManufacturer="DJ_Level_3" aaxIdentifier="com.djlevel3.osci-viewport"
               cppLanguageStandard="20" projectLineFeed="&#10;" headerPath="./include"
-              version="0.0.1" pluginFormats="buildAU,buildVST3" bundleIdentifier="com.djlevel3.osci-viewport"
+              version="1.0.0" pluginFormats="buildAU,buildVST3" bundleIdentifier="com.djlevel3.osci-viewport"
               pluginManufacturerCode="DJL3" pluginVST3Category="Analyzer">
   <MAINGROUP id="j5Ge2T" name="osci-viewport">
     <GROUP id="{5ABCED88-0059-A7AF-9596-DBF91DDB0292}" name="Resources">

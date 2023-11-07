@@ -21,6 +21,7 @@ public:
 private:
 	juce::CriticalSection lock;
     std::vector<float> buffer;
+    std::vector<juce::Line<float>> prevLines;
     int numChannels = 2;
     juce::Colour backgroundColour, waveformColour;
 	OscirenderAudioProcessor& audioProcessor;
