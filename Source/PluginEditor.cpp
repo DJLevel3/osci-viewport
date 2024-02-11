@@ -29,8 +29,9 @@ OscirenderAudioProcessorEditor::OscirenderAudioProcessorEditor(OscirenderAudioPr
     setLookAndFeel(&lookAndFeel);
 
     setSize(500, 500);
-    setResizable(false, false);
-    setResizeLimits(500, 500, 500, 500);
+    setResizable(true, true);
+    setResizeLimits(100, 100, 1000, 1000);
+    getConstrainer()->setFixedAspectRatio(1.f);
 }
 
 OscirenderAudioProcessorEditor::~OscirenderAudioProcessorEditor() {

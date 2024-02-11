@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX 
+#include <algorithm>
 #include <JuceHeader.h>
 #include "../concurrency/BufferConsumer.h"
 #include "../PluginProcessor.h"

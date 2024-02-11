@@ -120,7 +120,7 @@ void VisualiserComponent::paintXY(juce::Graphics& g, juce::Rectangle<float> area
         line.applyTransform(transform);
         float lengthScale = (line.getLength() + 0.001);
         float lengthScaleLog = std::log(strengthLast * (1.f / lengthScale) + 1) / std::log(strengthLast + 1);
-        g.setColour(waveColorLast.withAlpha(lengthScaleLog));
+        g.setColour(waveColorLast.withAlpha(std::max(0.f, std::min(lengthScaleLog, 1.f))));
         g.drawLine(line, area.getWidth() * (lengthScaleLog * 0.3 + 0.7) / widthDivisorLast);
     }
     prevLines = lines;
@@ -129,7 +129,7 @@ void VisualiserComponent::paintXY(juce::Graphics& g, juce::Rectangle<float> area
         line.applyTransform(transform);
         float lengthScale = (line.getLength() + 0.001);
         float lengthScaleLog = std::log(strength * (1 / lengthScale) + 1) / std::log(strength + 1);
-        g.setColour(waveColor.withAlpha(lengthScaleLog).withSaturation(std::pow(lengthScale, 2)));
+        g.setColour(waveColor.withAlpha(std::max(0.f, std::min(lengthScaleLog, 1.f))).withSaturation(std::pow(lengthScale, 2)));
         g.drawLine(line, area.getWidth() * (lengthScaleLog * 0.3 + 0.7) / widthDivisor);
     }
 }
