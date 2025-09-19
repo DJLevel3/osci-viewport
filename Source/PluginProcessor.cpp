@@ -126,17 +126,17 @@ void OscirenderAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
         double y = buffer.getSample(1, sample);
 
         
-        // clip
-        x = juce::jmax(-threshold, juce::jmin(threshold.load(), x));
-        y = juce::jmax(-threshold, juce::jmin(threshold.load(), y));
-        
-
         if (totalNumOutputChannels >= 2) {
-			channelData[0][sample] = x;
-			channelData[1][sample] = y;
-		} else if (totalNumOutputChannels == 1) {
+            channelData[0][sample] = x;
+            channelData[1][sample] = y;
+        } else if (totalNumOutputChannels == 1) {
             channelData[0][sample] = x;
         }
+        
+        // clip for scope
+        x = juce::jmax(-threshold, juce::jmin(threshold.load(), x));
+        y = juce::jmax(-threshold, juce::jmin(threshold.load(), y));
+
 
         {
             juce::SpinLock::ScopedLockType scope(consumerLock);
